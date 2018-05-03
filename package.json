@@ -6,7 +6,8 @@
     "lint": "eslint --ext js,md .",
     "test": "cd packages/geoip-plus; mocha",
     "precommit": "lint-staged",
-    "prepush": "npm test"
+    "prepush": "npm test",
+    "bench": "cd benchmark; node ."
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.4",
@@ -33,6 +34,7 @@
     ]
   },
   "workspaces": [
+    "benchmark",
     "packages/*"
   ]
 }
