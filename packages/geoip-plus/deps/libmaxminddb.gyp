@@ -11,6 +11,7 @@
         'libmaxminddb/include'
       ],
       'sources': [
+        './libmaxminddb/src/data-pool.c',
         './libmaxminddb/src/maxminddb.c'
       ],
       'cflags': [
