@@ -1,9 +1,8 @@
 {
-  "name": "geoip2",
-  "version": "1.0.5",
-  "description": "Maxmind GeoIP2 database reader for geolocating ip addresses.  Fast native implementation by wrapping libmaxminddb.",
-  "main": "./node-geoip2.js",
-  "author": "David Tsai",
+  "name": "geoip-plus",
+  "version": "0.0.0",
+  "description": "Fast, low memory Geo IP lookup module.",
+  "author": "Ratson",
   "license": "MIT",
   "keywords": [
     "geoip",
@@ -15,17 +14,15 @@
     "ip"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/davidtsai/node-geoip2.git"
-  },
+  "repository": "ratson/geopip-plus",
   "dependencies": {
-    "nan": "2.3.5"
+    "geoip-database": "^1.0.17",
+    "nan": "2.10.0"
   },
   "devDependencies": {
-    "mocha": "^2.5.1",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "mocha": "^2.5.1"
   }
 }

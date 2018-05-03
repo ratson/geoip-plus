@@ -2,12 +2,11 @@
   "private": true,
   "name": "geoip-plus-monorepo",
   "version": "0.0.0",
-  "description": "Fast, low memory Geo IP lookup module.",
   "scripts": {
     "lint": "eslint --ext js,md .",
-    "test": "ava",
+    "test": "cd packages/geoip-plus; mocha",
     "precommit": "lint-staged",
-    "prepush": "ava"
+    "prepush": "npm test"
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.4",
@@ -20,6 +19,9 @@
     "preslint": "^0.23.1"
   },
   "eslintConfig": {
+    "env": {
+      "mocha": true
+    },
     "extends": [
       "concise",
       "concise-ava"
@@ -29,5 +31,8 @@
     "*.js": [
       "preslint --fix --git"
     ]
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
