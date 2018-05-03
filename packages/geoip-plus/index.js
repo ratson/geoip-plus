@@ -1,3 +1,5 @@
+'use strict'
+
 const db = require('geoip-database')
 const mmdb = require('./lib/node_mmdb.node')
 

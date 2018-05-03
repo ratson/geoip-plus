@@ -1,66 +1,58 @@
-const { city } = require('geoip-database')
-
-const randip = () =>
-  `${Math.ceil(Math.random() * 254)}.${Math.ceil(
-    Math.random() * 254,
-  )}.${Math.ceil(Math.random() * 254)}.${Math.ceil(Math.random() * 254)}`
-
-const DB_FILE = city
+'use strict'
 
 const Benchmark = require('benchmark')
+const glob = require('fast-glob')
+const Path = require('path')
+const Bluebird = require('bluebird')
+const execa = require('execa')
+const bytes = require('bytes')
 
-const suite = new Benchmark.Suite()
-suite
-  .on('cycle', event => {
-    console.log(String(event.target))
-  })
-  .on('complete', event => {
-    console.log(
-      `Fastest is ${event.currentTarget.filter('fastest').map('name')}`,
-    )
-  })
+const { randip, DB_FILE } = require('./common')
 
-const experiment = (name, fn) => {
-  suite.add(name, { minSamples: 100, fn })
+function runBenchmark() {
+  const suite = new Benchmark.Suite()
+  suite
+    .on('cycle', event => {
+      console.log(String(event.target))
+    })
+    .on('complete', event => {
+      console.log(
+        `Fastest is ${event.currentTarget.filter('fastest').map('name')}`,
+      )
+    })
+
+  glob
+    .sync('*.js', { cwd: Path.join(__dirname, 'cases'), absolute: true })
+    .forEach(casePath => {
+      const name = Path.basename(casePath, '.js')
+      const fn = require(casePath)({ randip, DB_FILE })
+      if (fn !== false) {
+        suite.add(name, { minSamples: 100, fn })
+      }
+    })
+
+  console.log('Benchmarking...')
+  suite.run()
 }
 
-/** ***************** maxmind ********************** */
-const maxmind = require('maxmind').openSync(DB_FILE)
-experiment('maxmind', () => {
-  maxmind.get(randip())
-})
-
-/** *************** mmdb-reader ******************** */
-const mmdbReader = require('mmdb-reader')(DB_FILE)
-experiment('mmdb-reader', () => {
-  mmdbReader.lookup(randip())
-})
-
-/** *********** maxmind-db-reader ****************** */
-const maxmindDbReader = require('maxmind-db-reader').openSync(DB_FILE)
-experiment('maxmind-db-reader', () => {
-  maxmindDbReader.getGeoDataSync(randip())
-})
-
-/** ***************** geoip-plus  ********************** */
-const geoipPlus = require('geoip-plus').init(DB_FILE)
-experiment('geoip-plus', () => {
-  geoipPlus.lookupSync(randip())
-})
-
-/** ***************** geoip2  ********************** */
-try {
-  const geoip2 = require('geoip2').init(DB_FILE)
-  experiment('geoip2', () => {
-    geoip2.lookupSync(randip())
+async function printMemoryUsage() {
+  console.log('Memory usage')
+  await Bluebird.map(glob('cases/*.js', { cwd: __dirname }), async casePath => {
+    const { stdout } = await execa('node', ['memory-usage', `./${casePath}`], {
+      cwd: __dirname,
+    })
+    const name = Path.basename(casePath, '.js')
+    const info = Object.entries(JSON.parse(stdout))
+      .map(([k, v]) => `${k}=${bytes(v)}`)
+      .join(' ')
+    console.log(`${name.padEnd(20)} ${info}`)
   })
-} catch (err) {}
+}
 
-/** ***************** jgeoip  ********************** */
-const jgeoip = new (require('jgeoip'))(DB_FILE)
-experiment('jgeoip', () => {
-  jgeoip.getRecord(randip())
-})
+async function main() {
+  await printMemoryUsage()
 
-console.log('Benchmarking...')
-suite.run()
+  runBenchmark()
+}
+
+main()

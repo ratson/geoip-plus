@@ -14,6 +14,7 @@
     "eslint": "^4.19.1",
     "eslint-config-concise": "^0.24.0",
     "eslint-config-concise-ava": "^0.23.0",
+    "eslint-config-concise-esnext": "^0.24.1",
     "husky": "^0.14.3",
     "lerna": "^3.0.0-beta.18",
     "lint-staged": "^7.0.5",
@@ -25,6 +26,7 @@
     },
     "extends": [
       "concise",
+      "concise-esnext",
       "concise-ava"
     ]
   },

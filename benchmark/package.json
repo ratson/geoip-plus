@@ -3,15 +3,27 @@
   "name": "geoip-plus-benchmark",
   "version": "0.0.0",
   "dependencies": {
+    "benchmark": "^2.1.4",
+    "bluebird": "^3.5.1",
+    "bytes": "^3.0.0",
+    "execa": "^0.10.0",
+    "fast-glob": "^2.2.1",
     "geoip-database": "^1.0.17",
-    "benchmark": "^2.1.1",
     "geoip-plus": "0.0.0",
     "jgeoip": "^0.3.0",
-    "maxmind": "^2.4.0",
+    "maxmind": "^2.6.0",
     "maxmind-db-reader": "^0.2.1",
     "mmdb-reader": "^1.1.0"
   },
   "optionalDependencies": {
     "geoip2": "^1.0.5"
+  },
+  "eslintConfig": {
+    "rules": {
+      "global-require": "off",
+      "no-console": "off",
+      "node/no-missing-require": "off",
+      "security/detect-non-literal-require": "off"
+    }
   }
 }
