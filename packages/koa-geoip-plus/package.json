@@ -14,7 +14,7 @@
     "maxminddb",
     "ip"
   ],
-  "repository": "ratson/geopip-plus",
+  "repository": "ratson/geoip-plus",
   "dependencies": {
     "geoip-plus": "^0.0.1",
     "ipaddr.js": "^1.7.0"

@@ -16,7 +16,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": "ratson/geopip-plus",
+  "repository": "ratson/geoip-plus",
   "dependencies": {
     "geoip-database": "^1.0.17",
     "nan": "2.10.0"

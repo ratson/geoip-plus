@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "lint": "eslint --ext js,md .",
-    "test": "cd packages/geoip-plus; mocha",
+    "test": "ava; cd packages/geoip-plus; mocha",
     "precommit": "lint-staged",
     "prepush": "npm test",
     "bench": "cd benchmark; node ."
