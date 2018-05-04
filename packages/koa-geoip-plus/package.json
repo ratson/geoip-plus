@@ -1,0 +1,26 @@
+{
+  "name": "koa-geoip-plus",
+  "version": "0.0.0",
+  "description": "Koa binding for geoip-plus.",
+  "author": "Ratson",
+  "license": "MIT",
+  "keywords": [
+    "koa",
+    "geoip",
+    "geoip2",
+    "geolocation",
+    "maxmind",
+    "mmdb",
+    "maxminddb",
+    "ip"
+  ],
+  "repository": "ratson/geopip-plus",
+  "dependencies": {
+    "geoip-plus": "0.0.0",
+    "ipaddr.js": "^1.7.0"
+  },
+  "devDependencies": {
+    "koa": "^2.5.1",
+    "supertest": "^3.0.0"
+  }
+}
