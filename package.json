@@ -3,12 +3,12 @@
   "name": "geoip-plus-monorepo",
   "version": "0.0.0",
   "scripts": {
-    "postpublish": "cd packages/geoip-plus; prebuild -t 10.0.0 -t 9.11.1",
     "lint": "eslint --ext js,md .",
     "test": "ava; cd packages/geoip-plus; mocha",
     "precommit": "lint-staged",
     "prepush": "npm test",
-    "bench": "cd benchmark; node ."
+    "bench": "cd benchmark; node .",
+    "upload-prebuilds": "cd packages/geoip-plus; prebuild -t 10.0.0 -t 9.11.1"
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.4",
