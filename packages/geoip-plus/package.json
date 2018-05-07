@@ -14,15 +14,21 @@
     "ip"
   ],
   "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
     "test": "mocha"
   },
-  "repository": "ratson/geoip-plus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ratson/geoip-plus.git"
+  },
   "dependencies": {
     "geoip-database": "^1.0.17",
-    "nan": "2.10.0"
+    "nan": "2.10.0",
+    "prebuild-install": "^4.0.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.5.1"
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "prebuild": "^7.6.0"
   }
 }
