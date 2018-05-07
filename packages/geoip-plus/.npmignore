@@ -1,0 +1,5 @@
+build/
+prebuilds/
+deps/libmaxminddb/dev-bin/
+deps/libmaxminddb/doc/
+deps/libmaxminddb/*.md
