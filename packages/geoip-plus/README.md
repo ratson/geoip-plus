@@ -75,3 +75,7 @@ Looks up the simple data record for an address *synchronously*.
 Underlying class to create different instances of the DB.  Only needed for advanced usage.
 
 *libmaxminddb* might be fast enough that the asynchronous API's are unneccessary.  Would be interested to know if anyone has stats for this at very high volume.
+
+## Credit
+
+Fork from [geoip2](https://github.com/davidtsai/node-geoip2), thanks to the original contributors.
