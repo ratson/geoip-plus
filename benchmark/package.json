@@ -4,16 +4,16 @@
   "version": "0.0.5",
   "dependencies": {
     "benchmark": "^2.1.4",
-    "bluebird": "^3.5.1",
+    "bluebird": "^3.5.3",
     "bytes": "^3.0.0",
-    "execa": "^0.10.0",
-    "fast-glob": "^2.2.1",
-    "geoip-database": "^1.0.17",
+    "execa": "^1.0.0",
+    "fast-glob": "^2.2.4",
+    "geoip-database": "^1.0.19",
     "geoip-plus": "^0.0.5",
     "jgeoip": "^0.3.0",
-    "maxmind": "^2.6.0",
+    "maxmind": "^2.11.2",
     "maxmind-db-reader": "^0.2.1",
-    "mmdb-reader": "^1.1.0"
+    "mmdb-reader": "^1.2.0"
   },
   "optionalDependencies": {
     "geoip2": "^1.0.5"

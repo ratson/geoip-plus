@@ -21,12 +21,12 @@
     "url": "https://github.com/ratson/geoip-plus.git"
   },
   "dependencies": {
-    "geoip-database": "^1.0.17",
-    "nan": "2.10.0"
+    "geoip-database": "^1.0.19",
+    "nan": "2.12.1"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^5.1.1",
-    "prebuild": "^7.6.0"
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "prebuild": "^8.1.2"
   }
 }
