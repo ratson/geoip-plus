@@ -1,6 +1,6 @@
 {
   "name": "geoip-plus",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Fast, low memory Geo IP lookup module.",
   "author": "Ratson",
   "license": "MIT",
