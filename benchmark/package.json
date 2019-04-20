@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "geoip-plus-benchmark",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "dependencies": {
     "benchmark": "^2.1.4",
     "bluebird": "^3.5.4",
@@ -9,7 +9,7 @@
     "execa": "^1.0.0",
     "fast-glob": "^2.2.6",
     "geoip-database": "^1.0.19",
-    "geoip-plus": "^0.0.6",
+    "geoip-plus": "^0.0.7",
     "jgeoip": "^0.3.1",
     "maxmind": "^2.12.0",
     "maxmind-db-reader": "^0.2.1",

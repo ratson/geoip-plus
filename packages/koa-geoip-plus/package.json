@@ -1,6 +1,6 @@
 {
   "name": "koa-geoip-plus",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Koa binding for geoip-plus.",
   "author": "Ratson",
   "license": "MIT",
@@ -16,7 +16,7 @@
   ],
   "repository": "ratson/geoip-plus",
   "dependencies": {
-    "geoip-plus": "^0.0.6",
+    "geoip-plus": "^0.0.7",
     "ipaddr.js": "^1.9.0"
   },
   "devDependencies": {
